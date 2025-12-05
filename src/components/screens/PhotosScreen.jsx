@@ -14,9 +14,15 @@ export default function PhotosScreen({ onNext }) {
 
   const photos = [
     "/images/1.jpeg",
+    "/images/5.jpg",
     "/images/2.jpeg",
+    "/images/6.jpg",
     "/images/3.jpeg",
-    "/images/4.jpeg",
+    "/images/7.jpg",
+    "/images/4.jneg",
+    "/images/8.jpg",
+    "/images/9.jpg",
+    "/images/10.jpg",
   ]
 
   return (
@@ -42,14 +48,19 @@ export default function PhotosScreen({ onNext }) {
             modules={[EffectCards]}
             onSwiper={(sw) => (swiperRef.current = sw)}
             className="w-[280px] h-[420px] md:w-[340px] md:h-[460px]"
+            lazy={true}
+            preloadImages={false}
+            loop={true}
           >
             {photos.map((src, i) => (
               <SwiperSlide key={i}>
-                <div className="h-full w-full rounded-2xl">
+                <div className="h-full w-full rounded-2xl bg-gradient-to-br from-pink-900/20 to-purple-900/20 overflow-hidden">
                   <img
                     src={src}
                     alt={`Memory ${i + 1}`}
-                    className="h-full w-full rounded-xl object-cover"
+                    className="h-full w-full rounded-xl object-cover object-top"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </SwiperSlide>
